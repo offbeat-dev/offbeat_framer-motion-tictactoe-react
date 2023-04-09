@@ -38,15 +38,40 @@ const Square = ({ value, onSquareClick }: ISquareProps) => {
         initial="notClicked"
         animate={clicked ? 'clicked' : 'notClicked'}
       >
-        <motion.circle
-          cx="50"
-          cy="50"
-          r="45"
-          fill="none"
-          stroke="#ff0055"
-          strokeWidth="10"
-          variants={draw}
-        />
+        {value === 'O' ? (
+          <motion.circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#ff0055"
+            strokeWidth="10"
+            variants={draw}
+          />
+        ) : (
+          <>
+            <motion.line
+              x1="5"
+              y1="5"
+              x2="95"
+              y2="95"
+              stroke="#00cc88"
+              strokeWidth="10"
+              strokeLinecap="round"
+              variants={draw}
+            />
+            <motion.line
+              x1="5"
+              y1="95"
+              x2="95"
+              y2="5"
+              stroke="#00cc88"
+              strokeWidth="10"
+              strokeLinecap="round"
+              variants={draw}
+            />
+          </>
+        )}
       </motion.svg>
     </button>
   );
