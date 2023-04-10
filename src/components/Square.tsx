@@ -1,6 +1,6 @@
+import styled from 'styled-components/macro';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import styled from 'styled-components';
 
 interface ISquareProps {
   value: String | null;
@@ -8,9 +8,21 @@ interface ISquareProps {
 }
 
 const Button = styled.button`
-  background: transparent;
   border: 2px solid black;
   padding: 10px;
+  position: relative;
+  z-index: 0;
+  aspect-ratio: 1;
+  min-inline-size: 100px;
+
+  &::after {
+    content: '';
+    position:absolute;
+    inset: 0;
+    background: #FFF;
+    z-index: -1;
+    filter: opacity(60%) blur(2px);
+  }
 `;
 
 const Square = ({ value, onSquareClick }: ISquareProps) => {
@@ -39,8 +51,6 @@ const Square = ({ value, onSquareClick }: ISquareProps) => {
   return (
     <Button onClick={handleClick}>
       <motion.svg
-        width="100"
-        height="100"
         viewBox="0 0 100 100"
         initial="notClicked"
         animate={clicked ? 'clicked' : 'notClicked'}
@@ -64,7 +74,7 @@ const Square = ({ value, onSquareClick }: ISquareProps) => {
               y1="5"
               x2="95"
               y2="95"
-              stroke="#00cc88"
+              stroke="#0D63F8"
               strokeWidth="10"
               strokeLinecap="round"
               variants={draw}
@@ -75,7 +85,7 @@ const Square = ({ value, onSquareClick }: ISquareProps) => {
               y1="5"
               x2="5"
               y2="95"
-              stroke="#00cc88"
+              stroke="#0D63F8"
               strokeWidth="10"
               strokeLinecap="round"
               variants={draw}

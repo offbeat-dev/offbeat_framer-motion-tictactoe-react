@@ -1,7 +1,6 @@
+import styled from 'styled-components/macro';
 import { useState } from 'react';
-import styled from 'styled-components';
 import Board from './components/Board';
-import GameHead from './components/GameHead';
 
 const GameContainer = styled.div`
   padding: 30px 25px;
@@ -29,7 +28,6 @@ function App() {
   return (
     <div className="App">
       <GameContainer>
-        <GameHead />
         <BoardContainer>
           <Board xIsNext={xIsNext} squares={squares} onPlay={handlePlay} />
         </BoardContainer>

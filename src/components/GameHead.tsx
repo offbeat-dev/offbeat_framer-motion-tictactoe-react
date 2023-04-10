@@ -1,8 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { motion } from 'framer-motion';
 
 const Title = styled.h1`
   font-family: 'Josefin Sans', cursive;
+  font-size: clamp(4rem, 100px, 8rem);
+  color: #EEEEEE;
+  
 `;
 
 const TitleContainer = styled.div`
@@ -15,8 +18,8 @@ const GameHead = () => {
       <Title>
         <motion.span
           style={{ display: 'inline-block' }}
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Tic
@@ -24,18 +27,18 @@ const GameHead = () => {
         &nbsp;
         <motion.span
           style={{ display: 'inline-block' }}
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           Tac
         </motion.span>
         &nbsp;
         <motion.span
           style={{ display: 'inline-block' }}
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           Toe
         </motion.span>
